@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import "./ProductCard.scss";
-import Tester from "../../img/banana.png";
 import { Link, Route, useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
