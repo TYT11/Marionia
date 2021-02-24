@@ -39,7 +39,6 @@
     "styled-components": "^5"
   },
   "devDependencies": {
-    "eslint-config-airbnb": "^18.2.1",
     "react-svg-loader": "^3.0.3"
   }
 }
