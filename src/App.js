@@ -6,7 +6,7 @@ import styled from "styled-components";
 import ProductList from "./components/items/ProductList";
 import Footer from "./components/footer/Footer";
 import "./App.scss";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ShoppingCart from "./components/shopping/ShoppingCart";
 import Search from "./components/search/Search";
 import SignUp from "./components/auth/Signup";
@@ -27,20 +27,11 @@ const BodyContainer = styled.div`
   margin: 0 auto;
 `;
 
-const AutoLogout = (min) => {
-  const now = Date.now();
-  const tokenExpireAt = now + min * 60 * 1000;
-};
-
 function App() {
   const [username, setUsername] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("token") ? true : false
   );
-
-  useEffect(() => {
-    console.log("fire!!!!!!!!!!!1");
-  }, []);
 
   return (
     <div className="App">

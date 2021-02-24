@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./ProductCard.scss";
-import { Link, Route, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 
