@@ -2,7 +2,7 @@ import axios from "axios";
 import { Autologin } from "./auth";
 
 const instance = axios.create({
-  baseURL: "http://tyt-ebackend.herokuapp.com/",
+  baseURL: "https://tyt-ebackend.herokuapp.com/",
   headers: { "Content-Type": "application/json" },
   timeout: 20000,
 });
