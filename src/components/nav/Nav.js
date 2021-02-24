@@ -176,7 +176,7 @@ const Nav = (props) => {
                 value={SearchInput}
               />
               <button
-                type="button"
+                type="submit"
                 disabled={SearchInput === ""}
                 className="search-button"
               >

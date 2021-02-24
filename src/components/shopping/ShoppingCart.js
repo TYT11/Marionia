@@ -264,7 +264,7 @@ const ShoppingCart = () => {
                   Save contact information for my next orders.
                 </label>
               </div>
-              <button type="button" className="shopping-form-button">
+              <button type="submit" className="shopping-form-button">
                 PLACE ORDER
               </button>
             </form>
