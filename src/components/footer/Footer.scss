@@ -1,0 +1,40 @@
+.footer-container {
+  width: 100%;
+  position: relative;
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 3rem;
+  border-top: 1px solid rgb(233, 232, 232);
+  margin-top: 4.5rem;
+  z-index: 10;
+}
+
+.footer {
+  &-col {
+    display: flex;
+    justify-content: center;
+
+    &-list {
+      display: flex;
+
+      &-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        margin: 1rem 0.3rem;
+        img {
+          width: 100%;
+        }
+      }
+
+      &-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.8rem;
+      }
+    }
+  }
+}

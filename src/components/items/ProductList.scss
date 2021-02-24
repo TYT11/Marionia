@@ -1,0 +1,24 @@
+@import "../../mixins";
+
+.productList {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0.5rem auto;
+  flex-wrap: wrap;
+  background-color: #fff;
+  padding-left: 0;
+
+  @include responsive(phoneS) {
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+
+  @include responsive(tablet) {
+    padding-left: 0.75rem;
+  }
+
+  @include responsive(desktop) {
+    margin: 1.5rem auto;
+  }
+}

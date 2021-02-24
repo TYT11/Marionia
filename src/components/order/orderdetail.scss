@@ -1,0 +1,78 @@
+@import "../../mixins";
+
+.orderdetail-container {
+  margin: 1rem auto;
+  max-width: 70rem;
+}
+
+.orderdetail {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1rem;
+
+  &-title {
+    padding: 1rem;
+    font-size: 1.7rem;
+    font-weight: 800;
+    text-align: center;
+  }
+
+  &-total {
+    font-weight: bold;
+    text-align: right;
+    padding: 1rem;
+  }
+
+  &-cancel {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    background-color: rgb(224, 223, 223);
+    width: 5rem;
+    align-self: flex-end;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+
+      padding: 1rem;
+      border-bottom: 1px solid rgb(204, 204, 204);
+
+      &-title {
+        font-weight: bold;
+      }
+
+      &-numbers {
+        display: flex;
+
+        div {
+          padding: 0.5rem 0.2rem;
+        }
+      }
+    }
+  }
+
+  &-delivery {
+    margin: 1rem 0;
+    &-info {
+      &-box {
+        padding: 0.5rem 1rem;
+
+        &-title {
+          margin-right: 0.7rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

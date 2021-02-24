@@ -1,0 +1,66 @@
+.shipment-container {
+}
+
+.shipment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 80%;
+
+  &-estimated {
+    color: rgb(29, 37, 36);
+    font-size: 1.4rem;
+    font-weight: bold;
+    align-self: start;
+  }
+
+  &-progress {
+    width: 100%;
+
+    &-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin: 2rem 0;
+
+      &-fill {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        border-radius: 10px;
+        height: 0.7rem;
+
+        .fill-section {
+          position: relative;
+          width: 1.5rem;
+          height: 1.5rem;
+          z-index: 100;
+        }
+
+        .fill-bar {
+          position: relative;
+          width: 50%;
+          z-index: 50;
+          background-color: rgb(216, 216, 216);
+          height: 0.2rem;
+        }
+      }
+      &-text {
+        display: flex;
+        width: 104%;
+        margin-top: 0.5rem;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        .status {
+        }
+      }
+      &-info {
+      }
+    }
+  }
+}

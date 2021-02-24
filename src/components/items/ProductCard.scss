@@ -1,0 +1,111 @@
+@import "../../mixins";
+
+.productCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 90%;
+  margin-bottom: 1rem;
+
+  @include responsive(phoneSS) {
+    flex-basis: 48%;
+    margin: 5px 3px;
+  }
+
+  &:last-child {
+  }
+
+  @include responsive(phoneS) {
+    padding: 0.25rem;
+    padding-right: 1rem;
+    flex-basis: 50%;
+    margin-bottom: 0.2rem;
+    margin: 0;
+  }
+
+  @include responsive(tableS) {
+    padding: 0.25rem;
+    padding-right: 1rem;
+    flex-basis: 33.33%;
+  }
+
+  @include responsive(tablet) {
+    flex-basis: 25%;
+    margin-bottom: 1rem;
+  }
+
+  @include responsive(desktopL) {
+    flex-basis: 20%;
+  }
+
+  &-inner {
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 1px 1px 5px #eee;
+    padding: 0.3rem;
+    overflow: hidden;
+    max-width: 17rem;
+    height: 250px;
+
+    @include responsive(tablet) {
+      max-width: 15rem;
+    }
+
+    @include responsive(desktopL) {
+      height: 20rem;
+    }
+
+    &-img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      height: 12rem;
+
+      img {
+        width: 95%;
+        height: 100%;
+        padding: 1.5rem 0.5rem;
+      }
+    }
+  }
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.2rem 0.6rem;
+
+  &-title {
+    font-size: 1.3rem;
+    line-height: 1.375;
+  }
+}
+
+.productSales {
+  display: flex;
+  justify-content: space-between;
+}
+
+.productsort {
+  margin: 1.5rem 1rem 0 1.5rem;
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#ProductSort {
+  font-size: 0.8rem;
+  font-family: inherit;
+  padding: 0 0.5rem;
+  margin-left: 0.5rem;
+  color: rgb(42, 42, 42);
+  border: 1px solid rgb(206, 206, 206);
+}

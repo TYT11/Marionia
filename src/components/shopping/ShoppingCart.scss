@@ -1,0 +1,326 @@
+@import "../../mixins";
+.shopping {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include responsive(tabletL) {
+    margin: 0 auto;
+    margin-top: 1rem;
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  @include responsive(desktop) {
+    width: 98%;
+  }
+
+  &-line {
+    opacity: 0.5;
+  }
+
+  &-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+
+    @include responsive(tabletL) {
+      width: 55%;
+    }
+    @include responsive(tabletL) {
+      display: inline-block;
+    }
+
+    &-title {
+      padding: 1rem;
+      font-size: 1.7rem;
+      font-weight: 800;
+      text-align: center;
+
+      @include responsive(phoneS) {
+        padding: 2rem;
+      }
+    }
+
+    &-cancel {
+      display: block;
+      width: 0.9rem;
+      height: 0.9rem;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      align-self: flex-end;
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &-form-container-wrapper {
+    width: 100%;
+
+    @include responsive(tabletL) {
+      display: inline-block;
+      position: fixed;
+      width: 44%;
+    }
+
+    @include responsive(desktop) {
+      padding-left: 2rem;
+      max-width: 30rem;
+    }
+  }
+
+  &-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    padding: 0 2rem 2rem 2rem;
+    margin-top: 3rem;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+    padding: 1rem 0.5rem;
+
+    @include responsive(phoneS) {
+      padding: 0 2rem 2rem 2rem;
+    }
+
+    @include responsive(tabletL) {
+      width: 98%;
+      margin: 0 auto;
+      align-self: flex-start;
+      margin-top: 0;
+      padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+
+    @include responsive(desktop) {
+      width: 100%;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5rem;
+    width: 100%;
+
+    &-button {
+      background-color: #2f702d;
+      padding: 0.7rem;
+
+      color: #fff;
+    }
+
+    &-input {
+      padding: 0 1rem;
+      font-family: inherit;
+      height: 2rem;
+      margin-left: 1rem;
+      flex-basis: 75%;
+    }
+
+    &-input:focus {
+      outline: #3f667e solid 1px;
+    }
+
+    &-field {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 1rem;
+
+      &-check {
+        display: flex;
+        align-items: center;
+        margin: 1rem auto;
+
+        input {
+          width: 1rem;
+          height: 1rem;
+          margin: 0.5rem;
+        }
+      }
+    }
+  }
+
+  &-card {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 1.2rem;
+    overflow: hidden;
+
+    &-img {
+      width: 120px;
+      padding: 0.5rem;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    &-text {
+      width: 100%;
+      margin-left: 1.5rem;
+      line-height: 1.8rem;
+    }
+
+    &-details {
+      display: flex;
+      justify-content: space-between;
+
+      &-quantity {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 3rem;
+        background-color: #eee;
+
+        &-select {
+          width: 3rem;
+          padding-left: 0.6rem;
+          background-color: inherit;
+        }
+      }
+
+      &-quantity::after {
+        content: "";
+        position: absolute;
+        right: 0.5rem;
+        top: 40%;
+        width: 0.5rem;
+        height: 0.4rem;
+        background-color: rgb(165, 168, 161);
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+      }
+
+      &-price {
+      }
+    }
+
+    &-title {
+      font-weight: 800;
+    }
+  }
+
+  &-total {
+    margin-top: 1rem;
+
+    &-field {
+      display: flex;
+      width: 100%;
+      padding: 0.4rem 1rem;
+      justify-content: space-between;
+    }
+
+    .total {
+      font-weight: bold;
+    }
+  }
+}
+
+.empty-cart {
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  overflow: hidden;
+
+  &-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+  }
+
+  &-text {
+    margin-top: 1.5rem;
+  }
+
+  &-info {
+    font-weight: lighter;
+    font-size: 1.5rem;
+    color: #5d5d5d;
+  }
+
+  img {
+    width: 280px;
+    margin: 1rem 0;
+  }
+}
+
+.CartFade,
+.LineFade {
+  animation-name: Fade;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes Fade {
+  from {
+    max-height: 1000px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.submitorder {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  width: 400px;
+  height: 100px;
+  overflow: hidden;
+  bottom: 10%;
+  right: 50%;
+  margin-right: -200px;
+  z-index: 15;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+
+  background-color: rgb(187, 223, 187);
+  border: 1px solid rgb(153, 179, 153);
+
+  @include responsive(tabletS) {
+    margin-right: 0;
+    right: 4%;
+  }
+
+  &-icon {
+    padding: 1rem 1rem 1rem 1.5rem;
+    width: 20%;
+  }
+
+  &-message {
+    width: 70%;
+
+    &-title {
+      font-weight: 800;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
