@@ -43,6 +43,15 @@ const Nav = (props) => {
     checkbox.current.checked = false;
   }, [location]);
 
+  useEffect(() => {
+    if (!HideNav) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [HideNav]);
+
   return (
     <nav>
       <div className="nav-inner">
@@ -52,15 +61,12 @@ const Nav = (props) => {
               type="checkbox"
               id="hamburger-toggle"
               className="hamburger-check"
-              defaultChecked={HideNav ? "" : "checked"}
-            />
-            <label
-              htmlFor="hamburger-toggle"
-              className="hamburger-toggle"
-              onClick={() => {
+              onChange={() => {
                 setHideNav((prev) => !prev);
               }}
-            >
+              checked={HideNav ? "" : true}
+            />
+            <label htmlFor="hamburger-toggle" className="hamburger-toggle">
               <span className="hamburger-line" />
             </label>
 

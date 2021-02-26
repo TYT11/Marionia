@@ -9,8 +9,14 @@
   background-color: #fff;
   padding-left: 0;
 
+  @include responsive(phoneSS) {
+    justify-content: flex-start;
+    margin-left: 3px;
+  }
+
   @include responsive(phoneS) {
     justify-content: flex-start;
+    margin: 0.5rem auto;
     padding-left: 1rem;
   }
 
