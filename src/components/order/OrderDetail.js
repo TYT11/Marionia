@@ -3,6 +3,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import "./orderdetail.scss";
 import Shipment from "./Shipment";
 import { Orderdetail, Orderlist, Cancelorder } from "../api/auth";
+import HelmetTemplate from "../helmetTemplate";
 
 const Query = () => new URLSearchParams(useLocation().search);
 
@@ -47,6 +48,9 @@ const OrderDetail = () => {
 
   return (
     <div className="orderdetail-container">
+      <HelmetTemplate subTitle="Order Details" des="Order Details">
+        <meta name="robots" content="noindex, nofollow" />
+      </HelmetTemplate>
       <div className="orderdetail-title">ORDER DETAILS</div>
 
       {results.length > 0 ? (

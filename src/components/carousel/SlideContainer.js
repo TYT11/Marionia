@@ -40,6 +40,13 @@ const SlideContainer = () => {
   const [isAnimating, setisAnimating] = useState(false);
   const [ToggleFront, setToggleFront] = useState(false);
   const [ToggleBack, setToggleBack] = useState(false);
+  const touch = {
+    startX: 0,
+    endX: 0,
+    startY: 0,
+    endY: 0,
+  };
+
   // auto slide every 5 seconds.
   // when button clicked halt for 5 seconds and continue auto slide
 
@@ -112,9 +119,35 @@ const SlideContainer = () => {
     }
   };
 
+  const handleTouchStart = (e) => {
+    e.persist();
+    touch.startX = e.changedTouches[0].clientX;
+    touch.startY = e.changedTouches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    e.persist();
+    touch.endX = e.changedTouches[0].clientX;
+    touch.endY = e.changedTouches[0].clientY;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    if (touch.startX === touch.endX) {
+      return;
+    } else if (touch.startX > touch.endX) {
+      NextSlide();
+    } else {
+      PrevSlide();
+    }
+  };
+
   return (
     <>
-      <SlideContainerInner>
+      <SlideContainerInner
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <SlideContainerStyled
           Shown={Shown}
           className={ToggleBack ? "toback" : ToggleFront ? "tofront" : ""}

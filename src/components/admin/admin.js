@@ -28,7 +28,7 @@ export default function admin() {
         <div className="order-list">
           {orders.length > 0
             ? orders.map((order) => (
-                <div className="order-list-item">
+                <div className="order-list-item" key={order.order}>
                   <div className="order-list-item-header">
                     <div className="order-list-item-title">#{order.order}</div>
                     <div className="order-list-item-date">
@@ -43,10 +43,12 @@ export default function admin() {
                       >
                         <select defaultValue={order.status}>
                           {orderStatus.map((status, idx) => (
-                            <option value={idx + 1}>{status}</option>
+                            <option key={idx} value={idx + 1}>
+                              {status}
+                            </option>
                           ))}
                         </select>
-                        <button type="button">UPDATE</button>
+                        <button type="submit">UPDATE</button>
                       </form>
                     </div>
                   </div>

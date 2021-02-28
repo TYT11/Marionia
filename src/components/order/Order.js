@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./order.scss";
 import { Orderlist } from "../api/auth";
+import HelmetTemplate from "../helmetTemplate";
 
 const handleDate = (date) => {
   const months = [
@@ -71,6 +72,9 @@ export default function Order() {
             : "You haven't ordered anything yet. Shop now!"}
         </div>
       </div>
+      <HelmetTemplate subTitle="My Orders" des="Customer order panel">
+        <meta name="robots" content="noindex, nofollow" />
+      </HelmetTemplate>
     </div>
   );
 }

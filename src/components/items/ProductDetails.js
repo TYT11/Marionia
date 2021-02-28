@@ -4,6 +4,7 @@ import "./ProductDetails.scss";
 import right from "../../img/svg/thin-right.svg";
 import left from "../../img/svg/thin-left.svg";
 import Success from "../../img/svg/success.svg";
+import HelmetTemplate from "../helmetTemplate";
 
 const ProductDetails = ({ products }) => {
   const ref = useRef(null);
@@ -78,6 +79,10 @@ const ProductDetails = ({ products }) => {
 
   return (
     <>
+      <HelmetTemplate
+        subTitle={products.title}
+        des={`More infomation on ${products.title}.`}
+      />
       <div className={`addedalert ${addedAlert ? "alertactive" : ""}`}>
         <div className="alertactive-icon">
           <img src={Success} alt="" />
