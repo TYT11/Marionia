@@ -44,8 +44,8 @@ instance.interceptors.response.use(
               .catch((err) => {
                 localStorage.setItem("token", "");
                 localStorage.setItem("refresh", "");
-                window.location.href = "/login";
                 alert("作業逾時，請重新登入！");
+                history.push("/login");
                 return;
               });
           }
