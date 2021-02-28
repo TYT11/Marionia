@@ -33,9 +33,12 @@ export default function Order() {
   useEffect(() => {
     Orderlist(token)
       .then((res) => {
-        setOrders(res.data);
+        if (Array.isArray(res.data)) {
+          setOrders(res.data);
+        }
+        return;
       })
-      .catch((err) => console.log(err.response));
+      .catch((err) => console.log("err", err));
   }, []);
 
   return (

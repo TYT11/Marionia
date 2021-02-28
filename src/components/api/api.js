@@ -9,6 +9,7 @@ const instance = axios.create({
 
 export default function handleAPI(method, url, data = null, config = {}) {
   const lowerCaseMethod = method.toLowerCase();
+
   switch (method) {
     case "post":
       return instance.post(url, data, config);
@@ -32,7 +33,6 @@ instance.interceptors.response.use(
         case 401:
           const refresh = localStorage.getItem("refresh");
           const originalRequest = err.config;
-
           if (refresh) {
             return Autologin(refresh)
               .then((res) => localStorage.setItem("token", res.data.access))
@@ -45,9 +45,13 @@ instance.interceptors.response.use(
                 localStorage.setItem("token", "");
                 localStorage.setItem("refresh", "");
                 alert("作業逾時，請重新登入！");
-                history.push("/login");
-                return;
+                window.location.replace(
+                  "https://tyt-ebackend.herokuapp.com/login"
+                );
               });
+          } else {
+            alert("請重新登入！");
+            window.location.replace("https://tyt-ebackend.herokuapp.com/login");
           }
           return err;
 
