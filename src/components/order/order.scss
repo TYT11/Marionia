@@ -8,6 +8,7 @@
 .order {
   display: flex;
   justify-content: center;
+  margin: 0 0.5rem;
 
   &-title {
     padding: 1rem;
@@ -27,13 +28,29 @@
 
     &-item {
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
-      align-items: center;
+      align-items: stretch;
       flex-basis: 90%;
-      padding: 1.5rem;
+      padding: 1rem;
       border-radius: 12px;
-      background-color: rgb(211, 214, 218);
+      background-color: rgb(224, 224, 224);
       margin: 0.7rem 1rem;
+
+      @include responsive(phoneS) {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      &-sub {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        @include responsive(phoneS) {
+          margin-top: 0;
+        }
+      }
 
       &-total {
         margin-left: auto;
@@ -41,7 +58,15 @@
         color: rgb(58, 58, 58);
       }
 
-      &-date {
+      &-placedBy {
+        color: rgb(90, 90, 90);
+        margin-left: 0.5rem;
+        font-size: 13px;
+
+        @include responsive(phoneS) {
+          font-size: 15px;
+          margin: 0;
+        }
       }
 
       &-title {
@@ -52,12 +77,19 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
         form {
           display: flex;
           select,
           button {
             padding: 0.3rem;
             font-family: inherit;
+            font-size: 12px;
+
+            @include responsive(phoneS) {
+              font-size: 14px;
+              padding: 0.5rem;
+            }
           }
           button {
             background-color: rgb(248, 240, 240);
@@ -69,8 +101,14 @@
       &-header {
         display: flex;
         flex-basis: 55%;
-        justify-content: space-around;
+        justify-content: space-between;
+        margin: 0 0.2rem;
         align-items: center;
+
+        @include responsive(phoneS) {
+          justify-content: space-around;
+          margin: 0 1rem;
+        }
 
         @include responsive(tabletL) {
           flex-basis: 40%;

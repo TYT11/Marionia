@@ -344,7 +344,7 @@ select {
 }
 
 .alertactive {
-  width: 400px;
+  width: 200px;
   height: 100px;
   background-color: rgb(187, 223, 187);
   z-index: 10000;
@@ -353,6 +353,10 @@ select {
   animation-duration: 0.5s;
   border: 1px solid rgb(153, 179, 153);
   opacity: 1;
+
+  @include responsive(phoneS) {
+    width: 400px;
+  }
 
   &-icon {
     padding: 1rem 1rem 1rem 1.5rem;

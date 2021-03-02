@@ -40,7 +40,9 @@ const Nav = (props) => {
 
   useEffect(() => {
     dropdown.current.classList.remove("active");
+    console.log(checkbox.current.checked);
     checkbox.current.checked = false;
+    console.log(checkbox.current.checked);
   }, [location]);
 
   useEffect(() => {
@@ -228,6 +230,7 @@ const Nav = (props) => {
                 className="isDropdownOpen"
                 htmlFor="isDropdownOpen"
                 style={{ height: "17px" }}
+                onClick={checkDropdownOpen}
               >
                 <Profile width="17px" height="17px" />
               </label>

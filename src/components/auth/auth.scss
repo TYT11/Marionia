@@ -1,12 +1,17 @@
+@import "../../mixins";
+
 .auth-form-container {
   margin: 5rem auto;
   max-width: 600px;
-
-  padding: 4rem 3rem;
+  padding: 4rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include responsive(phoneS) {
+    padding: 4rem 1rem;
+  }
 
   .auth-form-title {
     font-weight: bold;
@@ -57,7 +62,11 @@
     display: flex;
     align-items: center;
     margin: 0.5rem 0;
-    width: 300px;
+    width: 220px;
+    @include responsive(phoneS) {
+      width: 300px;
+    }
+
     label {
       margin-right: 0.5rem;
     }

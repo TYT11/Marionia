@@ -303,7 +303,7 @@ const ShoppingCart = () => {
           <div className="empty-cart-title">Your cart is empty!</div>
           <br />
           <span className="empty-cart-info">
-            Looks like you haven`&#39;`t added anything yet.
+            Looks like you haven&#39;t added anything yet.
           </span>
         </div>
       </div>

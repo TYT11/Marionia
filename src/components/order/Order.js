@@ -58,17 +58,18 @@ export default function Order() {
                       {orderStatus[order.status - 1]}
                     </div>
                   </div>
-
-                  <div className="order-list-item-total">${order.total}</div>
-                  <div className="order-list-item-buttons">
-                    <Link to={`/orderdetail/?n=${order.order}`}>
-                      <button
-                        className="order-list-item-buttons-detail"
-                        type="submit"
-                      >
-                        DETAILS
-                      </button>
-                    </Link>
+                  <div className="order-list-item-sub">
+                    <div className="order-list-item-total">${order.total}</div>
+                    <div className="order-list-item-buttons">
+                      <Link to={`/orderdetail/?n=${order.order}`}>
+                        <button
+                          className="order-list-item-buttons-detail"
+                          type="submit"
+                        >
+                          DETAILS
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))

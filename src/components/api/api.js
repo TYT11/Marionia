@@ -46,6 +46,7 @@ instance.interceptors.response.use(
                 localStorage.setItem("refresh", "");
                 alert("作業逾時，請重新登入！");
                 window.location.replace("https://marionia.herokuapp.com/login");
+                return err;
               });
           } else {
             localStorage.setItem("token", "");

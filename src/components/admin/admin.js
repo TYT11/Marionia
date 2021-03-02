@@ -52,7 +52,7 @@ export default function admin() {
                       </form>
                     </div>
                   </div>
-                  <div className="order-list-item-date">
+                  <div className="order-list-item-placedBy">
                     placed by {order.username}
                   </div>
                   <div className="order-list-item-total">${order.total}</div>

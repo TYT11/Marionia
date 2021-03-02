@@ -461,10 +461,13 @@ svg:hover {
   overflow: hidden;
 }
 
-.dropdown:hover .account,
 #isDropdownOpen:checked ~ .account {
   opacity: 1;
   max-height: 50vh;
+}
+
+.isDropdownOpen svg {
+  fill: #fff;
 }
 
 #isDropdownOpen:checked ~ .isDropdownOpen svg {
@@ -505,7 +508,6 @@ svg:hover {
 }
 
 .dropdown.active::before,
-.dropdown:active::before,
-.dropdown:hover::before {
+.dropdown:active::before {
   border-bottom: 0.6rem solid #ffffff;
 }

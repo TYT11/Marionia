@@ -24,7 +24,6 @@ const estimatedArrival = (progress) => {
 };
 
 const Shipment = ({ progress }) => {
-  console.log(progress);
   return (
     <div className="shipment-container">
       <div className="shipment">
