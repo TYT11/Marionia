@@ -46,9 +46,11 @@
         display: flex;
         align-items: center;
         margin-top: 1rem;
+        background-color: #fff;
 
         @include responsive(phoneS) {
           margin-top: 0;
+          background-color: transparent;
         }
       }
 
@@ -123,11 +125,16 @@
         &-detail,
         &-cancel {
           font-size: 13px;
-
           font-family: inherit;
           padding: 0.2rem 0.4rem;
           margin-left: 0.5rem;
           background-color: #ffffff;
+        }
+        &-detail {
+          background-color: rgb(243, 243, 243);
+          @include responsive(phoneS) {
+            background-color: #ffffff;
+          }
         }
       }
     }

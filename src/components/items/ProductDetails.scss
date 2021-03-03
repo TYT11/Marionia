@@ -327,15 +327,20 @@ select {
   align-items: center;
   justify-content: space-around;
   position: fixed;
-  width: 400px;
+  margin-right: -140px;
+  width: 280px;
   height: 100px;
   overflow: hidden;
   bottom: 10%;
   right: 50%;
-  margin-right: -200px;
   opacity: 0;
   transition: all 1s;
   z-index: -1;
+
+  @include responsive(phoneS) {
+    width: 400px;
+    margin-right: -200px;
+  }
 
   @include responsive(tabletS) {
     margin-right: 0;
@@ -344,7 +349,7 @@ select {
 }
 
 .alertactive {
-  width: 200px;
+  width: 280px;
   height: 100px;
   background-color: rgb(187, 223, 187);
   z-index: 10000;
@@ -360,11 +365,19 @@ select {
 
   &-icon {
     padding: 1rem 1rem 1rem 1.5rem;
-    width: 20%;
+    width: 25%;
+
+    @include responsive(phoneS) {
+      width: 20%;
+    }
   }
 
   &-message {
-    width: 70%;
+    width: 80%;
+
+    @include responsive(phoneS) {
+      width: 70%;
+    }
 
     &-title {
       font-weight: 800;

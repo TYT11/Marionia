@@ -90,7 +90,7 @@ const ProductDetails = ({ products }) => {
         <div className="alertactive-message">
           <div className="alertactive-message-title">Success</div>
           <span className="alertactive-message-sub">
-            You`&#39;`ve added the item in your cart.
+            You&#39;ve added the item in your cart.
           </span>
         </div>
       </div>
