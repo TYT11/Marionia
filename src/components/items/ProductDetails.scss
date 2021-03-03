@@ -202,7 +202,7 @@
         z-index: 100;
         font-size: 0.9rem;
         margin-top: 0.5rem;
-
+        cursor: pointer;
         &-checkbox {
           display: none;
         }
@@ -336,6 +336,7 @@ select {
   opacity: 0;
   transition: all 1s;
   z-index: -1;
+  border: 1px solid transparent;
 
   @include responsive(phoneS) {
     width: 400px;
@@ -364,16 +365,17 @@ select {
   }
 
   &-icon {
-    padding: 1rem 1rem 1rem 1.5rem;
-    width: 25%;
+    padding: 0.5rem 1.1rem 0.5rem 1.1rem;
+    width: 23%;
 
     @include responsive(phoneS) {
+      padding: 1rem 1rem 1rem 1.5rem;
       width: 20%;
     }
   }
 
   &-message {
-    width: 80%;
+    width: 77%;
 
     @include responsive(phoneS) {
       width: 70%;

@@ -468,9 +468,11 @@ svg:hover {
 
 .isDropdownOpen svg {
   fill: #fff;
+  cursor: pointer;
 }
 
-#isDropdownOpen:checked ~ .isDropdownOpen svg {
+#isDropdownOpen:checked ~ .isDropdownOpen svg,
+.isDropdownOpen svg:hover {
   fill: rgba(97, 170, 238, 0.829);
 }
 
