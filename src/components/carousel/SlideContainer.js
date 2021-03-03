@@ -43,8 +43,6 @@ const SlideContainer = () => {
   const touch = {
     startX: 0,
     endX: 0,
-    startY: 0,
-    endY: 0,
     tocuhMove: false,
   };
 
@@ -125,14 +123,13 @@ const SlideContainer = () => {
     e.preventDefault();
 
     touch.startX = e.changedTouches[0].clientX;
-    touch.startY = e.changedTouches[0].clientY;
   };
 
   const handleTouchEnd = (e) => {
     e.persist();
     e.preventDefault();
     touch.endX = e.changedTouches[0].clientX;
-    touch.endY = e.changedTouches[0].clientY;
+
     handleSwipe();
   };
 
