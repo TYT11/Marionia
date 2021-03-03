@@ -45,6 +45,7 @@ const SlideContainer = () => {
     endX: 0,
     startY: 0,
     endY: 0,
+    tocuhMove: false,
   };
 
   // auto slide every 5 seconds.
@@ -121,31 +122,41 @@ const SlideContainer = () => {
 
   const handleTouchStart = (e) => {
     e.persist();
+    e.preventDefault();
+
     touch.startX = e.changedTouches[0].clientX;
     touch.startY = e.changedTouches[0].clientY;
   };
 
   const handleTouchEnd = (e) => {
     e.persist();
+    e.preventDefault();
     touch.endX = e.changedTouches[0].clientX;
     touch.endY = e.changedTouches[0].clientY;
     handleSwipe();
   };
 
+  const handleTocuhMove = (e) => {
+    e.preventDefault();
+    touch.tocuhMove = true;
+  };
+
   const handleSwipe = () => {
-    if (touch.startX === touch.endX) {
+    if (touch.startX === touch.endX || !touch.tocuhMove) {
       return;
     } else if (touch.startX > touch.endX) {
       NextSlide();
     } else {
       PrevSlide();
     }
+    touch.tocuhMove = false;
   };
 
   return (
     <>
       <SlideContainerInner
         onTouchStart={handleTouchStart}
+        onTouchMove={handleTocuhMove}
         onTouchEnd={handleTouchEnd}
       >
         <SlideContainerStyled
