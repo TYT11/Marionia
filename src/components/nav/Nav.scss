@@ -19,6 +19,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: 95%;
+  max-width: 1500px;
   @include responsive(desktop) {
     width: 90%;
   }

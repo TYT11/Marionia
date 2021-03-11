@@ -98,10 +98,15 @@ const ProductDetails = ({ products }) => {
       <div className="pd-row-1">
         <div className="pd-row-1-left">
           <div className="pd-row-1-left-img">
-            <img
-              src={`${process.env.PUBLIC_URL}/img/${products.img}.png`}
-              alt=""
-            />
+            <picture>
+              <source
+                srcSet={`${process.env.PUBLIC_URL}/img/${products.img}.webp`}
+              />
+              <img
+                src={`${process.env.PUBLIC_URL}/img/${products.img}.jpg`}
+                alt={products.title}
+              />
+            </picture>
           </div>
         </div>
         <div className="pd-row-1-right">
@@ -212,10 +217,15 @@ const ProductDetails = ({ products }) => {
                     <div className="small-card" key={index}>
                       <div className="small-card-img">
                         <Link to={`/details/${item.id}`}>
-                          <img
-                            src={`${process.env.PUBLIC_URL}/img/${item.img}.png`}
-                            alt={item.title}
-                          />
+                          <picture>
+                            <source
+                              srcSet={`${process.env.PUBLIC_URL}/img/${item.img}.webp`}
+                            />
+                            <img
+                              src={`${process.env.PUBLIC_URL}/img/${item.img}.jpg`}
+                              alt={item.title}
+                            />
+                          </picture>
                         </Link>
                       </div>
                     </div>

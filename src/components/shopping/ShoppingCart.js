@@ -8,6 +8,7 @@ import OpenPackage from "../../img/svg/package.svg";
 import Success from "../../img/svg/success.svg";
 import { Placeorder } from "../api/auth";
 import loading from "../../img/loading.gif";
+import "../items/ProductDetails.scss";
 
 const ShoppingCart = () => {
   if (!localStorage.getItem("shopping")) {
@@ -63,13 +64,15 @@ const ShoppingCart = () => {
       }));
 
       Placeorder(items, token)
-        .then(() => {
-          setOrderSubmit(true);
-          setSavedItem([]);
-          setTimeout(() => {
-            setOrderSubmit(false);
-            redirectTo("/order");
-          }, 1000);
+        .then((res) => {
+          if (res.status === 200) {
+            setSavedItem([]);
+            setOrderSubmit(true);
+            setTimeout(() => {
+              setOrderSubmit(false);
+              redirectTo("/order");
+            }, 1000);
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -78,8 +81,6 @@ const ShoppingCart = () => {
       return;
     }
     setSubmitting(false);
-    alert("Please log in!");
-    redirectTo("/login");
   };
 
   useEffect(() => {
@@ -119,10 +120,15 @@ const ShoppingCart = () => {
 
               <div className="shopping-card-img">
                 <Link to={`/details/${item.id}`}>
-                  <img
-                    src={`${process.env.PUBLIC_URL}/img/${item.img}.png`}
-                    alt=""
-                  />
+                  <picture>
+                    <source
+                      srcSet={`${process.env.PUBLIC_URL}/img/${item.img}.webp`}
+                    />
+                    <img
+                      src={`${process.env.PUBLIC_URL}/img/${item.img}.jpg`}
+                      alt={item.title}
+                    />
+                  </picture>
                 </Link>
               </div>
               <div className="shopping-card-text">
@@ -253,16 +259,6 @@ const ShoppingCart = () => {
                     }));
                   }}
                 />
-              </div>
-              <div className="shopping-form-field-check  ">
-                <input
-                  type="checkbox"
-                  className="shopping-form-field-check-input"
-                  id="save"
-                />
-                <label htmlFor="save">
-                  Save contact information for my next orders.
-                </label>
               </div>
               <button type="submit" className="shopping-form-button">
                 PLACE ORDER

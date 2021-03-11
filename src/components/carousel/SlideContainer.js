@@ -120,21 +120,18 @@ const SlideContainer = () => {
 
   const handleTouchStart = (e) => {
     e.persist();
-    e.preventDefault();
-
     touch.startX = e.changedTouches[0].clientX;
   };
 
   const handleTouchEnd = (e) => {
     e.persist();
-    e.preventDefault();
     touch.endX = e.changedTouches[0].clientX;
 
     handleSwipe();
+    touch.tocuhMove = false;
   };
 
   const handleTocuhMove = (e) => {
-    e.preventDefault();
     touch.tocuhMove = true;
   };
 
@@ -147,6 +144,8 @@ const SlideContainer = () => {
       PrevSlide();
     }
     touch.tocuhMove = false;
+    touch.startX = 0;
+    touch.endX = 0;
   };
 
   return (

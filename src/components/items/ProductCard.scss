@@ -14,9 +14,6 @@
     margin: 5px 3px;
   }
 
-  &:last-child {
-  }
-
   @include responsive(phoneS) {
     padding: 0.25rem;
     padding-right: 1rem;
@@ -64,8 +61,13 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 90%;
-      height: 12rem;
+      width: 79%;
+      height: 13rem;
+
+      picture {
+        display: flex;
+        justify-content: center;
+      }
 
       img {
         width: 95%;

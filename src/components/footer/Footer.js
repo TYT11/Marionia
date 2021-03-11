@@ -24,8 +24,10 @@ const Footer = () => {
         </div>
         <div className="footer-col">
           <ul className="footer-col-list-col">
-            <li>Porfolio</li>
-            <li> &copy; 2020 YI-TING TSAI</li>
+            <a href="https://yitingtsai.herokuapp.com/">
+              <li>Porfolio</li>
+            </a>
+            <li> &copy; 2021 YI-TING</li>
           </ul>
         </div>
       </div>

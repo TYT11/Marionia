@@ -22,6 +22,7 @@ const Nav = (props) => {
   const dropdown = useRef(null);
   const checkbox = useRef(null);
   const location = useLocation();
+  const username = localStorage.getItem("username");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,9 +41,7 @@ const Nav = (props) => {
 
   useEffect(() => {
     dropdown.current.classList.remove("active");
-    console.log(checkbox.current.checked);
     checkbox.current.checked = false;
-    console.log(checkbox.current.checked);
   }, [location]);
 
   useEffect(() => {
@@ -245,6 +244,13 @@ const Nav = (props) => {
                       <Link to="/order">
                         <li>ORDERS</li>
                       </Link>
+                      {username === "test" ? (
+                        <Link to="/manageorder">
+                          <li>ADMIN</li>
+                        </Link>
+                      ) : (
+                        ""
+                      )}
                     </>
                   ) : (
                     <>

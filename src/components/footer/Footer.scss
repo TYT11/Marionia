@@ -34,6 +34,18 @@
         justify-content: center;
         align-items: center;
         line-height: 1.8rem;
+
+        a li {
+          color: rgb(19, 123, 141);
+          font-weight: 800;
+          letter-spacing: 1px;
+          border-bottom: rgb(19, 123, 141) 1px dotted;
+          margin-bottom: 1rem;
+        }
+        a li:hover {
+          color: rgb(10, 68, 78);
+          border-bottom: rgb(19, 123, 141) 1px solid;
+        }
       }
     }
   }

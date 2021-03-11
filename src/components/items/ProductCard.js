@@ -24,7 +24,6 @@ const ProductCard = ({ products }) => {
       return sort ? a.price - b.price : b.price - a.price;
     });
     setSorted(sorter);
-    console.log("fired");
   };
 
   useEffect(() => {
@@ -54,14 +53,15 @@ const ProductCard = ({ products }) => {
                   <Link to={`/details/${product.id}`}>
                     <div className="productCard-inner">
                       <ProductImg className="productCard-inner-img">
-                        <img
-                          src={
-                            process.env.PUBLIC_URL +
-                            "/img/" +
-                            product.img +
-                            ".png"
-                          }
-                        ></img>
+                        <picture>
+                          <source
+                            srcSet={`${process.env.PUBLIC_URL}/img/${product.img}.webp`}
+                          />
+                          <img
+                            src={`${process.env.PUBLIC_URL}/img/${product.img}.jpg`}
+                            alt={product.title}
+                          />
+                        </picture>
                       </ProductImg>
                       <ProductInfo className="productInfo">
                         <ProductTitle className="productInfo-title">

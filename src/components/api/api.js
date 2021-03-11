@@ -34,24 +34,26 @@ instance.interceptors.response.use(
           const refresh = localStorage.getItem("refresh");
           const originalRequest = err.config;
           if (refresh) {
-            return Autologin(refresh)
-              .then((res) => localStorage.setItem("token", res.data.access))
+            Autologin(refresh)
+              .then((res) => {
+                localStorage.setItem("token", res.data.access);
+              })
               .then((res) => {
                 originalRequest.headers.Authorization =
                   "Bearer " + localStorage.getItem("token");
                 return axios(originalRequest);
               })
               .catch((err) => {
+                if (originalRequest.url === "/api/token/refresh/") return;
                 localStorage.setItem("token", "");
                 localStorage.setItem("refresh", "");
                 alert("作業逾時，請重新登入！");
                 window.location.replace("https://marionia.herokuapp.com/login");
-                return err;
+                return;
               });
           } else {
             localStorage.setItem("token", "");
             localStorage.setItem("refresh", "");
-            alert("請重新登入！");
             window.location.replace("https://marionia.herokuapp.com/login");
           }
           return err;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { handleDate, orderStatus } from "../order/Order";
 import { Manageorder, Managestatus } from "../api/auth";
+import "../order/order.scss";
 
 export default function admin() {
   const [orders, setOrders] = useState([]);
@@ -41,7 +42,10 @@ export default function admin() {
                           updateForm(order.order, e.target.children[0].value);
                         }}
                       >
-                        <select defaultValue={order.status}>
+                        <select
+                          defaultValue={order.status}
+                          style={{ backgroundColor: "#fff" }}
+                        >
                           {orderStatus.map((status, idx) => (
                             <option key={idx} value={idx + 1}>
                               {status}

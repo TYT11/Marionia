@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Login } from "../api/auth";
 import loading from "../../img/loading.gif";
-
+import "./auth.scss";
 const LogIn = ({ setIsAuthenticated }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
