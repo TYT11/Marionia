@@ -42,7 +42,7 @@ const Search = () => {
         <>
           <div className="result-title">
             Your Search for <br />
-            <span>"{location.slice(3)}"</span>
+            <span>&quot;{location.slice(3)}&quot;</span>
           </div>
           <div className="line result-line" />
           <div className="productList result-result">
