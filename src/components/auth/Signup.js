@@ -4,7 +4,7 @@ import "./auth.scss";
 import { Signup, Login } from "../api/auth";
 import loading from "../../img/loading.gif";
 
-const SignUp = ({ setIsAuthenticated }) => {
+const SignUp = ({ isAuthenticated, setIsAuthenticated }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [Err, setErr] = useState("");
@@ -60,47 +60,52 @@ const SignUp = ({ setIsAuthenticated }) => {
         ""
       )}
       <div className="auth-form-title">SIGN UP</div>
-      <form
-        action=""
-        method="POST"
-        className="auth-form"
-        onSubmit={handleSubmit}
-      >
-        <div className="auth-form-inputgroup">
-          <input
-            type="text"
-            id="account"
-            placeholder="Username"
-            className="auth-form-input"
-            onChange={(e) => {
-              setUser(e.target.value);
-            }}
-          />
-        </div>
 
-        <div className="auth-form-inputgroup">
-          <input
-            type="password"
-            id="account"
-            placeholder="Password"
-            className="auth-form-input"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <span className="auth-form-message">
-          Have an acocunt already?
-          <Link className="auth-form-message-highlight" to="/login">
-            Log in
-          </Link>
-          <br />
-          {Err}
-        </span>
-        <button className="auth-submit" type="submit">
-          SIGN UP
-        </button>
-      </form>
+      {isAuthenticated ? (
+        <div>You've already logged in!</div>
+      ) : (
+        <form
+          action=""
+          method="POST"
+          className="auth-form"
+          onSubmit={handleSubmit}
+        >
+          <div className="auth-form-inputgroup">
+            <input
+              type="text"
+              id="account"
+              placeholder="Username"
+              className="auth-form-input"
+              onChange={(e) => {
+                setUser(e.target.value);
+              }}
+            />
+          </div>
+
+          <div className="auth-form-inputgroup">
+            <input
+              type="password"
+              id="account"
+              placeholder="Password"
+              className="auth-form-input"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <span className="auth-form-message">
+            Have an acocunt already?
+            <Link className="auth-form-message-highlight" to="/login">
+              Log in
+            </Link>
+            <br />
+            {Err}
+          </span>
+          <button className="auth-submit" type="submit">
+            SIGN UP
+          </button>
+        </form>
+      )}
     </div>
   );
 };

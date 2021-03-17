@@ -3,12 +3,12 @@ import { Link, useHistory } from "react-router-dom";
 import { Login } from "../api/auth";
 import loading from "../../img/loading.gif";
 import "./auth.scss";
-const LogIn = ({ setIsAuthenticated }) => {
+const LogIn = ({ isAuthenticated, setIsAuthenticated }) => {
+  console.log(isAuthenticated);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [Token, setToken] = useState("");
   const [Logging, setLogging] = useState(false);
-
   const history = useHistory();
 
   const redirectToHome = () => {
@@ -51,44 +51,48 @@ const LogIn = ({ setIsAuthenticated }) => {
       )}
 
       <div className="auth-form-title">WELCOME BACK</div>
-      <form
-        action=""
-        method="POST"
-        className="auth-form"
-        onSubmit={handleSubmit}
-      >
-        <div className="auth-form-inputgroup">
-          <input
-            placeholder="Username"
-            type="text"
-            id="account"
-            className="auth-form-input"
-            onChange={(e) => {
-              setUser(e.target.value);
-            }}
-          />
-        </div>
-        <div className="auth-form-inputgroup">
-          <input
-            placeholder="Password"
-            type="password"
-            id="password"
-            className="auth-form-input"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </div>
-        <span className="auth-form-message">
-          Haven&apos;t joined us?
-          <Link className="auth-form-message-highlight" to="/signup">
-            Sign up
-          </Link>
-        </span>
-        <button className="auth-submit" type="submit">
-          LOG IN
-        </button>
-      </form>
+      {isAuthenticated ? (
+        <div>You&#39;ve already logged in!</div>
+      ) : (
+        <form
+          action=""
+          method="POST"
+          className="auth-form"
+          onSubmit={handleSubmit}
+        >
+          <div className="auth-form-inputgroup">
+            <input
+              placeholder="Username"
+              type="text"
+              id="account"
+              className="auth-form-input"
+              onChange={(e) => {
+                setUser(e.target.value);
+              }}
+            />
+          </div>
+          <div className="auth-form-inputgroup">
+            <input
+              placeholder="Password"
+              type="password"
+              id="password"
+              className="auth-form-input"
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+          </div>
+          <span className="auth-form-message">
+            Haven&apos;t joined us?
+            <Link className="auth-form-message-highlight" to="/signup">
+              Sign up
+            </Link>
+          </span>
+          <button className="auth-submit" type="submit">
+            LOG IN
+          </button>
+        </form>
+      )}
     </div>
   );
 };

@@ -72,6 +72,7 @@ function App() {
               <Route path="/signup">
                 <SignUp
                   setUsername={setUsername}
+                  isAuthenticated={isAuthenticated}
                   setIsAuthenticated={setIsAuthenticated}
                 />
               </Route>
@@ -79,6 +80,7 @@ function App() {
               <Route path="/login">
                 <LogIn
                   setUsername={setUsername}
+                  isAuthenticated={isAuthenticated}
                   setIsAuthenticated={setIsAuthenticated}
                 />
               </Route>

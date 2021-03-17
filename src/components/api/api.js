@@ -44,12 +44,12 @@ instance.interceptors.response.use(
                 return axios(originalRequest);
               })
               .catch((err) => {
-                if (originalRequest.url === "/api/token/refresh/") return;
+                // if (originalRequest.url === "/api/token/refresh/") return;
                 localStorage.setItem("token", "");
                 localStorage.setItem("refresh", "");
                 alert("作業逾時，請重新登入！");
                 window.location.replace("https://marionia.herokuapp.com/login");
-                return;
+                return error;
               });
           } else {
             localStorage.setItem("token", "");
