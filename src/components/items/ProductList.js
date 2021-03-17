@@ -22,13 +22,10 @@ const ProductList = () => {
     : "";
 
   useEffect(() => {
-    Productlist()
-      .then((res) => {
-        setProducts(res.data);
-      })
-      .then(() => {
-        setLoading(false);
-      });
+    Productlist().then((res) => {
+      setProducts(res.data);
+      setLoading(false);
+    });
   }, [productId, category]);
 
   return (
