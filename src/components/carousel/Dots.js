@@ -30,7 +30,7 @@ const DotStyled = styled.ul`
   }
 `;
 
-const Dots = ({ total, Shown, setShown }) => {
+const Dots = ({ total, Shown, setShown, setisAnimating }) => {
   return (
     <DotsStyled>
       <DotStyled>
@@ -40,6 +40,10 @@ const Dots = ({ total, Shown, setShown }) => {
               key={ind + 1}
               onClick={() => {
                 setShown(ind + 1);
+                setisAnimating(true);
+                setTimeout(() => {
+                  setisAnimating(false);
+                }, 500);
               }}
               className={Shown === ind + 1 ? "Circle-active" : ""}
             ></li>

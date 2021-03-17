@@ -54,11 +54,11 @@ const SlideContainer = () => {
   useEffect(() => {
     let isMounted = true;
 
-    timeout = setTimeout(() => {
+    timeout = setInterval(() => {
       if (isMounted) {
         NextSlide();
       }
-      clearTimeout(timeout);
+      clearInterval(timeout);
     }, 5000);
 
     return () => {
@@ -180,7 +180,12 @@ const SlideContainer = () => {
         }}
         className={ToggleFront ? "tofront" : ""}
       />
-      <Dots total={images.length} Shown={Shown} setShown={setShown} />
+      <Dots
+        total={images.length}
+        Shown={Shown}
+        setShown={setShown}
+        setisAnimating={setisAnimating}
+      />
     </>
   );
 };
