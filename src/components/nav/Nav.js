@@ -190,7 +190,7 @@ const Nav = (props) => {
                 <Search className="search-button-svg" />
               </button>
               <button
-                type="button"
+                type="submit"
                 disabled={SearchInput === ""}
                 className="search-button-small"
               >
