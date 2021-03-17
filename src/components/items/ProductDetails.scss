@@ -282,9 +282,15 @@ select {
   margin-bottom: 1rem;
   transition: all 1s;
 
+  @include responsive(tabletS) {
+    overflow-x: visible;
+    overflow-y: hidden;
+  }
+
   @include responsive(tablet) {
     width: 90%;
     overflow-x: visible;
+    overflow-y: visible;
   }
 
   &::-webkit-scrollbar {

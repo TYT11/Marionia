@@ -93,7 +93,7 @@ const ShoppingCart = () => {
         <div className="shopping-list-title">MY BAG</div>
 
         {savedItem.map((item, idx) => (
-          <>
+          <React.Fragment key={idx + item.title}>
             <div
               className={`line shopping-line ${
                 cancelIdx === idx + item.title ? "LineFade" : ""
@@ -157,7 +157,7 @@ const ShoppingCart = () => {
                 </div>
               </div>
             </div>
-          </>
+          </React.Fragment>
         ))}
 
         <div className="shopping-summary">
