@@ -17,7 +17,6 @@ export default function admin() {
     Manageorder(token)
       .then((res) => {
         setOrders(res.data);
-        console.log(res.data);
       })
       .catch((err) => console.log(err.response));
   }, []);
@@ -27,7 +26,7 @@ export default function admin() {
       <div className="order-title">ALL ORDERS</div>
       <div className="order">
         <div className="order-list">
-          {orders.length > 0
+          {orders?.length > 0
             ? orders.map((order) => (
                 <div className="order-list-item" key={order.order}>
                   <div className="order-list-item-header">

@@ -1,12 +1,19 @@
 import axios from "axios";
 import { Autologin } from "./auth";
 
-console.log(process.env);
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
 const instance = axios.create({
   baseURL: process.env.REACT_APP_BACK_END_ROOT,
   headers: { "Content-Type": "application/json" },
   timeout: 20000,
+  cancelToken: source.token,
 });
+
+export const cancelFunc = () => {
+  source.cancel();
+};
 
 export default function handleAPI(method, url, data = null, config = {}) {
   const lowerCaseMethod = method.toLowerCase();
@@ -34,33 +41,34 @@ instance.interceptors.response.use(
         case 401:
           const refresh = localStorage.getItem("refresh");
           const originalRequest = err.config;
+          if (originalRequest.url === "/api/token/refresh/")
+            return Promise.reject(err);
           if (refresh) {
-            Autologin(refresh)
+            return Autologin(refresh)
               .then((res) => {
                 localStorage.setItem("token", res.data.access);
               })
               .then((res) => {
                 originalRequest.headers.Authorization =
                   "Bearer " + localStorage.getItem("token");
-                return axios(originalRequest);
+                return axios.request(originalRequest);
               })
               .catch((err) => {
-                // if (originalRequest.url === "/api/token/refresh/") return;
                 localStorage.setItem("token", "");
                 localStorage.setItem("refresh", "");
                 alert("作業逾時，請重新登入！");
                 window.location.replace("https://marionia.herokuapp.com/login");
-                return error;
+                return Promise.reject(err);
               });
           } else {
             localStorage.setItem("token", "");
             localStorage.setItem("refresh", "");
             window.location.replace("https://marionia.herokuapp.com/login");
           }
-          return err;
+          return Promise.reject(err);
 
         default:
-          return err;
+          return Promise.reject(err);
       }
     }
   }
