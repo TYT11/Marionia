@@ -17,6 +17,18 @@ const ProductDetails = ({ products }) => {
   const [recentlyViewedItems, setRecentlyViewedItems] = useState([]);
   const [addedAlert, setAddedAlert] = useState(false);
 
+  let timer;
+  const resetRecently = (delay = 3000) => {
+    window.clearTimeout(timer);
+    timer = window.setTimeout(() => {
+      if (window.innerWidth < 768) {
+        setRecentlyPage(0);
+      }
+    }, delay);
+  };
+
+  window.addEventListener("resize", resetRecently);
+
   const moveRecently = () => {
     const maxPage = Math.ceil(recentlyViewedItems.length / 5) - 1;
     if (recentlyPage <= maxPage) {
@@ -57,6 +69,14 @@ const ProductDetails = ({ products }) => {
       setAddedAlert(false);
     }, 1500);
   };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollTop();
+  }, [products.title]);
 
   useEffect(() => {
     const height = ref.current.scrollHeight;
