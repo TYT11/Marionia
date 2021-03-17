@@ -205,7 +205,7 @@ const ProductDetails = ({ products }) => {
                 <button
                   className="previous"
                   type="button"
-                  disabled={recentlyPage === 0 ? "true" : ""}
+                  disabled={recentlyPage === 0 ? true : ""}
                   onClick={() => {
                     setRecentlyPage((prev) => prev - 1);
                   }}
@@ -237,7 +237,7 @@ const ProductDetails = ({ products }) => {
                   disabled={
                     recentlyPage ===
                     Math.ceil(recentlyViewedItems.length / 5) - 1
-                      ? "true"
+                      ? true
                       : ""
                   }
                   onClick={() => {
