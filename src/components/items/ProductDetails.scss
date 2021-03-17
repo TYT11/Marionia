@@ -283,7 +283,7 @@ select {
   transition: all 1s;
 
   @include responsive(tablet) {
-    width: 92%;
+    width: 90%;
     overflow-x: visible;
   }
 
@@ -406,10 +406,16 @@ select {
       position: absolute;
       padding: 5rem 1rem;
       background: #fff;
+      transition: opacity 0.8s;
       img {
         width: 1.5rem;
       }
     }
+  }
+
+  .previous:disabled,
+  .next:disabled {
+    opacity: 0.5;
   }
 }
 
