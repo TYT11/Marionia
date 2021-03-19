@@ -75,7 +75,7 @@ const ProductDetails = ({ products }) => {
   };
 
   useEffect(() => {
-    scrollTop();
+    return scrollTop();
   }, [products.title]);
 
   useEffect(() => {
