@@ -13,15 +13,15 @@ export const Login = (credentials) => {
 };
 
 export const Signup = (credentials) => {
-  return req("post", "/account/register/", credentials);
+  return req("post", "/api/account/register/", credentials);
 };
 
 export const Productlist = () => {
-  return req("get", "/products/");
+  return req("get", "/api/products/");
 };
 
 export const Orderlist = (token) => {
-  return req("get", "/orders/", "", header(token));
+  return req("get", "/api/orders/", "", header(token));
 };
 
 export const Orderdetail = (query, token) => {
@@ -33,11 +33,11 @@ export const Cancelorder = (order, token) => {
 };
 
 export const Searchproduct = (query) => {
-  return req("get", `/products/?${query}`);
+  return req("get", `/api/products/?${query}`);
 };
 
 export const Placeorder = (items, token) => {
-  return req("post", "/placeorder/", items, header(token));
+  return req("post", "/api/placeorder/", items, header(token));
 };
 
 export const Managestatus = (order, status, token) => {
