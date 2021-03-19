@@ -1,5 +1,5 @@
-import React, { Suspense, lazy, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React, { Suspense, lazy, useState, useEffect } from "react";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import Carousel from "./components/carousel/Carousel";
 import Nav from "./components/nav/Nav";
 import styled from "styled-components";
@@ -34,6 +34,40 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("token") ? true : false
   );
+  let history = useHistory();
+  const [locations, setLocations] = useState([history.location.key]);
+  const [positions, setPositions] = useState({});
+  const [documentHeight, setDocumentHeight] = useState(0);
+  const resizeObserver = new ResizeObserver((e) =>
+    setDocumentHeight(e[0].target.offsetHeight)
+  );
+  resizeObserver.observe(document.body);
+
+  useEffect(() => {
+    return history.listen((location) => {
+      if (history.action === "PUSH") {
+        const pageDownBy = window.pageYOffset;
+        setPositions((prev) => {
+          return { ...prev, [locations[0]]: pageDownBy };
+        });
+        setLocations([location.key]);
+      }
+
+      if (history.action === "POP") {
+        if (locations[1] === location.key) {
+          setLocations(([_, ...keys]) => keys);
+        } else {
+          setLocations((keys) => [location.key, ...keys]);
+        }
+      }
+    });
+  }, [locations]);
+
+  useEffect(() => {
+    if (documentHeight >= positions[history.location.key]) {
+      scrollTo(0, positions[history.location.key]);
+    }
+  }, [documentHeight]);
 
   return (
     <HelmetProvider>
