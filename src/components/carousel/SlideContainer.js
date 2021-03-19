@@ -63,6 +63,7 @@ const SlideContainer = () => {
 
     return () => {
       isMounted = false;
+      clearInterval(timeout);
     };
   }, [isAnimating]);
 
@@ -138,9 +139,9 @@ const SlideContainer = () => {
   const handleSwipe = () => {
     if (touch.startX === touch.endX || !touch.tocuhMove) {
       return;
-    } else if (touch.startX > touch.endX) {
+    } else if (touch.startX - touch.endX >= 20) {
       NextSlide();
-    } else {
+    } else if (touch.startX - touch.endX <= -20) {
       PrevSlide();
     }
     touch.tocuhMove = false;
