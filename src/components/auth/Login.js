@@ -4,7 +4,6 @@ import { Login } from "../api/auth";
 import loading from "../../img/loading.gif";
 import "./auth.scss";
 const LogIn = ({ isAuthenticated, setIsAuthenticated }) => {
-  console.log(isAuthenticated);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [Token, setToken] = useState("");
