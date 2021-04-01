@@ -25,7 +25,7 @@ export const Orderlist = (token) => {
 };
 
 export const Orderdetail = (query, token) => {
-  return req("get", `/orderdetail/?${query}`, "", header(token));
+  return req("get", `/api/orderdetail/?${query}`, "", header(token));
 };
 
 export const Cancelorder = (order, token) => {
