@@ -1,13 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Marionia 
+------------
 
-## Available Scripts
+![](https://i.imgur.com/2MEDsSn.jpg)
 
-In the project directory, you can run:
+網址：https://marionia.herokuapp.com/
 
-### `npm start`
+#### Setup
+------------
+- Install packages: 
+`npm install`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Start the development server:
+`npm start`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Page runs at:
+http://localhost:3000/
+
+#### 功能
+
+------------
+- 登入/註冊
+- 購物車
+- RWD
+- CRUD
+- 幻燈片
+- 自動重新登入
+- Scroll Restoration
+
+#### Tech Stack
+
+------------
+
+- React
+- Django Rest Framework
+- Simple JWT
+- Axios
+- SCSS
