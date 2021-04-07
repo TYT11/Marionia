@@ -27,7 +27,7 @@ http://localhost:3000/
 - 自動重新登入
 - Scroll Restoration
 
-#### Tech Stack
+#### Tech
 
 ------------
 
