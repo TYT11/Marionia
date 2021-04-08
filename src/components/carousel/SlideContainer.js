@@ -52,19 +52,17 @@ const SlideContainer = () => {
   let timeout;
 
   useEffect(() => {
-    let isMounted = true;
-
-    timeout = setInterval(() => {
-      if (isMounted) {
-        NextSlide();
-      }
-      clearInterval(timeout);
+    if (isAnimating) {
+      setTimeout(() => {
+        setisAnimating(false);
+      }, 500);
+      return;
+    }
+    timeout = setTimeout(() => {
+      NextSlide();
     }, 5000);
 
-    return () => {
-      isMounted = false;
-      clearInterval(timeout);
-    };
+    return () => clearTimeout(timeout);
   }, [isAnimating]);
 
   const NextSlide = () => {
@@ -77,19 +75,17 @@ const SlideContainer = () => {
         setShown((prev) => prev + 1);
         // animation finished. jump back to the front.
         setTimeout(() => {
+          //add .tofront class
           setToggleFront(true);
           setShown(1);
-          setisAnimating(false);
         }, 500);
+        //clear class
         setToggleBack(false);
         return;
       }
-
+      //clear class
       setToggleFront(false);
       setShown((prev) => prev + 1);
-      setTimeout(() => {
-        setisAnimating(false);
-      }, 500);
     }
   };
 
@@ -104,18 +100,14 @@ const SlideContainer = () => {
         setTimeout(() => {
           setToggleBack(true);
           setShown(images.length - 2);
-          setisAnimating(false);
         }, 500);
         //clear class
         setToggleFront(false);
         return;
       }
-
+      //clear class
       setToggleBack(false);
       setShown((prev) => prev - 1);
-      setTimeout(() => {
-        setisAnimating(false);
-      }, 500);
     }
   };
 
@@ -138,6 +130,8 @@ const SlideContainer = () => {
 
   const handleSwipe = () => {
     if (touch.startX === touch.endX || !touch.tocuhMove) {
+      touch.startX = 0;
+      touch.endX = 0;
       return;
     } else if (touch.startX - touch.endX >= 20) {
       NextSlide();
