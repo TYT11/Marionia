@@ -23,8 +23,8 @@ http://localhost:3000/
 - 購物車
 - RWD
 - CRUD
-- 幻燈片
-- 自動重新登入
+- 照片輪播
+- axios攔截器實現自動重新登入
 - Scroll Restoration
 
 #### Tech
