@@ -131,10 +131,8 @@ const SlideContainer = () => {
       return;
     } else if (touch.startX - touch.endX >= 30) {
       NextSlide();
-      console.log(touch.startX, touch.endX, "next");
     } else if (touch.startX - touch.endX <= -30) {
       PrevSlide();
-      console.log(touch.startX, touch.endX, "prev");
     }
     touch.tocuhMove = false;
     touch.startX = 0;
