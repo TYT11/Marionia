@@ -119,9 +119,7 @@ const SlideContainer = () => {
   const handleTouchEnd = (e) => {
     e.persist();
     touch.endX = e.changedTouches[0].clientX;
-
     handleSwipe();
-    touch.tocuhMove = false;
   };
 
   const handleTocuhMove = (e) => {
@@ -129,14 +127,14 @@ const SlideContainer = () => {
   };
 
   const handleSwipe = () => {
-    if (touch.startX === touch.endX || !touch.tocuhMove) {
-      touch.startX = 0;
-      touch.endX = 0;
+    if (!touch.tocuhMove || !touch.startX || isAnimating) {
       return;
-    } else if (touch.startX - touch.endX >= 20) {
+    } else if (touch.startX - touch.endX >= 30) {
       NextSlide();
-    } else if (touch.startX - touch.endX <= -20) {
+      console.log(touch.startX, touch.endX, "next");
+    } else if (touch.startX - touch.endX <= -30) {
       PrevSlide();
+      console.log(touch.startX, touch.endX, "prev");
     }
     touch.tocuhMove = false;
     touch.startX = 0;
