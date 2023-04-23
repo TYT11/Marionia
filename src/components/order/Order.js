@@ -50,7 +50,7 @@ export default function Order() {
             ? orders.map((order, index) => (
                 <div className="order-list-item" key={index}>
                   <div className="order-list-item-header">
-                    <div className="order-list-item-title">#{order.order}</div>
+                    <div className="order-list-item-title">#{order.id}</div>
                     <div className="order-list-item-date">
                       {handleDate(order.created)}
                     </div>
@@ -61,7 +61,7 @@ export default function Order() {
                   <div className="order-list-item-sub">
                     <div className="order-list-item-total">${order.total}</div>
                     <div className="order-list-item-buttons">
-                      <Link to={`/orderdetail/?n=${order.order}`}>
+                      <Link to={`/orderdetail/?n=${order.id}`}>
                         <button
                           className="order-list-item-buttons-detail"
                           type="submit"

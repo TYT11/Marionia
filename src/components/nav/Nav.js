@@ -74,7 +74,7 @@ const Nav = (props) => {
             <ul className="category">
               <ul className="category-list">
                 <NavLink
-                  to="/category/shells"
+                  to="/category/SLL"
                   exact
                   className="category-item"
                   activeClassName="category-active"
@@ -85,7 +85,7 @@ const Nav = (props) => {
                   <li>SHELLS</li>
                 </NavLink>
                 <NavLink
-                  to="/category/weapons"
+                  to="/category/WPN"
                   exact
                   className="category-item"
                   activeClassName="category-active"
@@ -96,7 +96,7 @@ const Nav = (props) => {
                   <li>WEAPONS</li>
                 </NavLink>
                 <NavLink
-                  to="/category/mushrooms"
+                  to="/category/MSHRM"
                   exact
                   className="category-item"
                   activeClassName="category-active"
@@ -107,7 +107,7 @@ const Nav = (props) => {
                   <li>MUSHROOMS</li>
                 </NavLink>
                 <NavLink
-                  to="/category/mystery"
+                  to="/category/MYBX"
                   exact
                   className="category-item"
                   activeClassName="category-active"
@@ -132,32 +132,20 @@ const Nav = (props) => {
           </Link>
 
           <ul className="leftWrapper-list-desktop">
-            <NavLink
-              to="/category/shells"
-              exact
-              activeClassName="desktop-active"
-            >
+            <NavLink to="/category/SLL" exact activeClassName="desktop-active">
               <li>SHELLS</li>
             </NavLink>
-            <NavLink
-              to="/category/weapons"
-              exact
-              activeClassName="desktop-active"
-            >
+            <NavLink to="/category/WPN" exact activeClassName="desktop-active">
               <li>WEAPONS</li>
             </NavLink>
             <NavLink
-              to="/category/mushrooms"
+              to="/category/MSHRM"
               exact
               activeClassName="desktop-active"
             >
               <li>MUSHROOMS</li>
             </NavLink>
-            <NavLink
-              to="/category/mystery"
-              exact
-              activeClassName="desktop-active"
-            >
+            <NavLink to="/category/MYBX" exact activeClassName="desktop-active">
               <li>MYSTERY BOX</li>
             </NavLink>
           </ul>

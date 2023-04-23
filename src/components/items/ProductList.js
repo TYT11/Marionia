@@ -18,7 +18,7 @@ const ProductList = () => {
     : "";
 
   const detailed = productId
-    ? products.filter((product) => product.id === parseInt(productId, 10))
+    ? products.filter((product) => product.id === productId)
     : "";
 
   useEffect(() => {

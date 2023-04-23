@@ -59,13 +59,13 @@ const ShoppingCart = () => {
         total: savedItem.reduce((acc, cur) => acc + cur.price * cur.qty, 0),
         item: item.id,
         qty: item.qty,
-        num: item.price,
+        price: item.price,
         order: 1,
       }));
 
       Placeorder(items, token)
         .then((res) => {
-          if (res.status === 200) {
+          if (res.status === 200 || 201) {
             setSavedItem([]);
             setOrderSubmit(true);
             setTimeout(() => {

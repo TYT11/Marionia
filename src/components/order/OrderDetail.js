@@ -19,6 +19,7 @@ const OrderDetail = () => {
     Orderdetail(query, token)
       .then((res) => {
         setResults(res.data);
+        console.log(res.data);
       })
       .catch((err) => console.log(err.response));
   }, [location]);
@@ -26,8 +27,9 @@ const OrderDetail = () => {
   useEffect(() => {
     Orderlist(token)
       .then((res) => {
-        const order = res.data.filter((item) => item.order === query.get("n"));
+        const order = res.data.filter((item) => item.id == query.get("n"));
         setOrders(order);
+        console.log(order);
       })
       .catch((err) => console.log(err.response));
   }, []);
@@ -55,7 +57,7 @@ const OrderDetail = () => {
 
       {results.length > 0 ? (
         <div className="orderdetail">
-          {orders ? <Shipment progress={orders[0].status} /> : ""}
+          {orders ? <Shipment progress={orders[0]?.status} /> : ""}
           <button
             className="orderdetail-cancel"
             type="submit"
@@ -70,19 +72,19 @@ const OrderDetail = () => {
               <div className="orderdetail-list-item" key={index}>
                 <div>
                   <div className="orderdetail-list-item-title">
-                    {result.item}
+                    {result.title}
                   </div>
                   <div className="orderdetail-list-item-qty">x{result.qty}</div>
                 </div>
                 <div className="orderdetail-list-item-price">
-                  <div>${result.qty * result.num}</div>
+                  <div>${result.qty * result.price}</div>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="orderdetail-total">
-            TOTAL: ${results.reduce((acc, cur) => acc + cur.qty * cur.num, 0)}
+            TOTAL: ${results.reduce((acc, cur) => acc + cur.qty * cur.price, 0)}
           </div>
 
           {orders ? (
@@ -93,19 +95,19 @@ const OrderDetail = () => {
                   <span className="orderdetail-delivery-info-box-title">
                     Placed by:{" "}
                   </span>{" "}
-                  {orders[0].name}
+                  {orders[0]?.name}
                 </div>
                 <div className="orderdetail-delivery-info-box">
                   <span className="orderdetail-delivery-info-box-title">
                     Phone:{" "}
                   </span>{" "}
-                  {orders[0].phone}
+                  {orders[0]?.phone}
                 </div>
                 <div className="orderdetail-delivery-info-box">
                   <span className="orderdetail-delivery-info-box-title">
                     Shipped to:{" "}
                   </span>{" "}
-                  {orders[0].address}
+                  {orders[0]?.address}
                 </div>
               </div>
             </div>
