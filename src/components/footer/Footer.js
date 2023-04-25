@@ -27,6 +27,12 @@ const Footer = () => {
             <a href="https://tyt.herokuapp.com/">
               <li>Porfolio</li>
             </a>
+            <a href="https://github.com/TYT11/Marionia">
+              <li>Frontend Code</li>
+            </a>
+            <a href="https://github.com/TYT11/Marionia-backend">
+              <li>Backend Code</li>
+            </a>
           </ul>
         </div>
       </div>

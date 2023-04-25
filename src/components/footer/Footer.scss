@@ -30,7 +30,7 @@
 
       &-col {
         display: flex;
-        flex-direction: column;
+
         justify-content: center;
         align-items: center;
         line-height: 1.8rem;
@@ -40,7 +40,7 @@
           font-weight: 800;
           letter-spacing: 1px;
           border-bottom: rgb(19, 123, 141) 1px dotted;
-          margin-bottom: 1rem;
+          margin: 0 0.5rem 1rem 0.5rem;
         }
         a li:hover {
           color: rgb(10, 68, 78);
