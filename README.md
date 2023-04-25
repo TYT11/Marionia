@@ -16,11 +16,4 @@
 - Page runs at:
 http://localhost:3000/
 
-#### 介紹
-
-------------
-
-SCSS 手刻 RWD，實做照片輪播  
-前、後端分離，部屬在 Heroku  
-使用 React, Django Rest Framework 
 
