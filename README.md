@@ -1,9 +1,4 @@
-### Marionia 
-------------
-
 ![](https://i.imgur.com/2MEDsSn.jpg)
-
-網址：https://marionia.herokuapp.com/
 
 #### Setup
 ------------
